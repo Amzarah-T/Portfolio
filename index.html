@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                   <img src="img/lpgirl1.jpg" alt="">
+                   <img src="img/lpgirl1.jpg" alt="" class="abt">
                 </div>
 
                 <div class="about-col-2">
@@ -44,13 +44,36 @@
                        nemo voluptatum minus repellendus quasi veniam. Quam!</p>
 
                     <div class="tab-titles">
-                        <p class="tab-links">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
-                    </div>   
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('Programming')">Programming Languages</p>
+                        <p class="tab-links" onclick="opentab('Education')">Education</p>
+                    </div> 
+                    
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web app Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Programming">
+                        <ul>
+                            <li><span>Front - End</span><br>HTML CSS Bootsrap Java Script jQuery</li>
+                            <li><span>Back - End</span><br>C PHP Python MySQL Java </li>
+                            <li><span>App Development</span><br>Kotlin Java</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><span>BICT(Hons) Software systems</span><br>Undergraduate - University of Kelaniya</li>
+                            
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="code.js"></script>
 </body> 
 </html>
