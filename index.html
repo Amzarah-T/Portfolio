@@ -20,13 +20,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         <div class="container">
             <nav>
                 <img src="img/logo1.png" alt="" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick=" closemenu() "></i>
                 </ul>
+                
+                <i class="fa-solid fa-bars" onclick=" openmenu() ></i>
             </nav>
             <div class="header-text">
                 <p>Front End Developer - Beginner</p>
@@ -156,10 +159,63 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 </div>
             </div>
         </div>
+
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact me</h1>
+                <p><i class="fa-solid fa-envelope"></i>  amzrthaj@gmail.com </p>
+                <p><i class="fa-solid fa-phone"></i>  0781776220</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                <a href="img/mycv.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your name" required>
+                    <input type="email" name="Email" placeholder="Your email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright Zaara Tan </p>
     </div>
 </div>
 
 <!-- link for the js codes -->
     <script src="code.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxQljELcu7Qyn4WvvQMW_zltx77XcEtoY-Zm3ujToN-B6LAIPPBHvxTNOvcnoNj3t-nfg/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                   msg.innerHTML = "Message sent successfully"
+                   setTimeout(function(){
+                    msg.innerHTML = ""
+                   },5000)
+                   form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body> 
 </html>
